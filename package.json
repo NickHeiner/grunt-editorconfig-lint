@@ -1,0 +1,24 @@
+{
+  "name": "grunt-editorconfig-lint",
+  "version": "0.1.0",
+  "description": "Grunt task to run editorconfig-lint on your files",
+  "main": "tasks/grunt-editorconfig-lint.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NickHeiner/grunt-editorconfig-lint"
+  },
+  "keywords": [
+    "grunt",
+    "editorconfig",
+    "lint"
+  ],
+  "author": "Nick Heiner <nth23@cornell.edu>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NickHeiner/grunt-editorconfig-lint/issues"
+  },
+  "homepage": "https://github.com/NickHeiner/grunt-editorconfig-lint"
+}
