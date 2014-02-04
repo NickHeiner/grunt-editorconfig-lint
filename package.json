@@ -25,5 +25,11 @@
     "grunt": "~0.4.2",
     "grunt-contrib-jshint": "~0.8.0",
     "load-grunt-tasks": "~0.3.0"
+  },
+  "dependencies": {
+    "lodash": "~2.4.1",
+    "q-io": "~1.10.8",
+    "q": "~1.0.0",
+    "chalk": "~0.4.0"
   }
 }
