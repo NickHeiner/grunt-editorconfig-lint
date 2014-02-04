@@ -1,6 +1,7 @@
 'use strict';
 
 var _ = require('lodash');
+var _str = require('underscore.string');
 var qFs = require('q-io/fs');
 var editorconfigLint = _.curry(require('editorconfig-lint'));
 var util = require('util');
@@ -53,21 +54,25 @@ module.exports = function (grunt) {
                     console.log();
                     console.log(chalk.red.underline(lint.filePath));
 
-                    _.forEach(lint.lintResult, function(violation, validationName) {
+                    _.forEach(lint.lintResult, function(violations, validationName) {
 
-                        console.log();
+                        _.forEach(violations, function(violation) {
 
-                        console.log(_.template('[L<%= lineNumber %>:C<%= col %>]: ' + validationName), violation);
+                            console.log();
 
-                        console.log(violation.line);
+                            console.log(_.template('[L<%= lineNumber %>:C<%= col %>]: ' + validationName, violation));
 
-                        var highlightedLine = violation.line.splice(0, violation.col) +
-                            chalk.bgRed(violation.line[violation.col]) +
-                            violation.line.splice(violation.col + 1);
+                            var highlightedLine = violation.line.substring(0, violation.col) +
+                                chalk.bgRed(violation.line[violation.col]) +
+                                violation.line.substring(violation.col + 1);
 
-                        console.log(highlightedLine);
+                            console.log(highlightedLine);
 
-                        console.log();
+                            console.log(_str.repeat(' ', violation.col) + '^');
+
+                            console.log();
+
+                        });
                     });
 
                     console.log();

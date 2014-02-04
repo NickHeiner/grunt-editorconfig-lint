@@ -12,6 +12,8 @@ module.exports = (grunt) ->
 
     'editorconfig-lint':
       fixture:
-        src: 'test/fixture/**/*.js'
+        options:
+          max_line_length: 120
+        src: ['test/fixture/**/*.js']
 
   grunt.registerTask 'test', ['jshint', 'editorconfig-lint']
